@@ -1,10 +1,15 @@
 cmake_minimum_required(VERSION 2.8)
-project(AudioProcess LANGUAGES C)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-SET(CMAKE_BUILD_TYPE "Debug")
+project(AudioProcessBasis)
 
-#set(CMAKE_C_STANDARD 99)
-include_directories(include)
-add_executable(AudioProcess main.c)
+aux_source_directory(. DIR_SRCS)
+set(PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(AudioProcess -lm)
+include_directories(${PROJECT_SOURCE_DIR})
+
+set(PROJECT_SOURCE_FILES
+        ${PROJECT_SOURCE_DIR}/dr_wav.h
+        ${PROJECT_SOURCE_DIR}/timing.h
+        ${PROJECT_SOURCE_DIR}/main.c
+        )
+
+add_executable(audio_process ${PROJECT_SOURCE_FILES})

@@ -3,18 +3,19 @@
 #include <stdint.h>
 
 #include "timing.h"
+#include "dr_wav.h"
+
+#define DR_WAV_IMPLMENTATION
 
 #ifdef _WIN32
 
 #include <windows.h>
 
 #else
+
 #include <unistd.h>
+
 #endif
-
-#include "dr_wav.h"
-
-#define DR_WAV_IMPLMENTATION
 
 // write wav file
 void wavWrite_int16(char *filename, int16_t *buffer,
